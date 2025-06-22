@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 
+  for the production command:
+  npx @tailwindcss/cli -i .\css\input.css -o .\css\tailwindcss.css --watch -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- this is for dev and debug only -->
+  <!-- <link href="./css/tailwindcss.css" rel="stylesheet"> -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <title>&#x276F;&#x276F;&#x276F; Page in Progress - BorneoFur Dev</title>
+
+  <!-- 
+  Designer vs Developer Meme — Light/Dark Theme Switcher
+  Author: Nikita
+  Source Code https://codepen.io/lgmus/pen/gOBoZyd -->
+  <link href="./css/daynight.css" rel="stylesheet">
+  <style>
+    .blinking-cursor {
+      display: inline-block;
+      margin-left: 0.3em;
+      animation: blink 1s steps(2, start) infinite;
+      color: currentColor;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900">
+  <!-- 🌙 Theme toggle stays top-right -->
+  <div class="absolute top-4 right-4 z-50">
+    <label class="daynight">
+      <input type="checkbox" class="daynight__checkbox">
+      <span class="daynight__sky">
+        <span class="daynight__stars"></span>
+        <span class="daynight__morestars"></span>
+        <span class="daynight__sunmoon"></span>
+      </span>
+    </label>
+  </div>
+
+  <!-- ✅ Fully centered message -->
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md">
+      <div class="flex justify-center space-x-2 mt-4">
+        <img src="./assets/wolfy.png" class="w-12" alt="wolfy" />
+        <img src="./assets/sweat-droplets.png" class="w-12" alt="sweat" />
+      </div>
+      <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+        Wolfy Temporary Brain Overheating
+      </h1>
+      <p class="text-2xl text-gray-900 dark:text-gray-300">
+        Need more coffee ☕ and pizza 🍕.<br>
+        Coding will resume shortly!<br>
+        UwU
+      </p>
+      <p class="text-lg text-gray-900 dark:text-gray-300 text-right">- team BorneoFur<span
+          class="blinking-cursor">&#9613;</span></p>
+    </div>
+  </div>
+  <!-- Footer GitHub Link -->
+  <div class="fixed bottom-0 left-0 z-50 w-full h-16">
+    <div class="grid h-full grid-cols-1 max-w-0 mx-auto font-medium">
+      <a href="https://github.com/BorneoFur" target="_blank" rel="noopener noreferrer"
+        class="hover:opacity-80 transition">
+        <svg class="w-8 h-8 fill-gray-800 dark:fill-gray-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 .297a12 12 0 0 0-3.794 23.4c.6.113.82-.263.82-.582v-2.257c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.332-1.757-1.332-1.757-1.09-.746.082-.73.082-.73 1.205.084 1.84 1.234 1.84 1.234 1.07 1.834 2.807 1.304 3.492.996.108-.776.42-1.304.763-1.603-2.665-.304-5.466-1.334-5.466-5.932 0-1.312.469-2.384 1.235-3.222-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.486 11.486 0 0 1 6 0c2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.24 2.874.117 3.176.767.838 1.235 1.91 1.235 3.222 0 4.61-2.803 5.625-5.475 5.922.431.372.815 1.102.815 2.222v3.293c0 .322.218.698.825.58A12.004 12.004 0 0 0 12 .297z" />
+        </svg>
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- ✅ JS controllight light and dark mode-->
+  <script>
+    const checkbox = document.querySelector('.daynight__checkbox');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      document.documentElement.classList.add('dark');
+      checkbox.checked = true;
+    }
+
+    checkbox.addEventListener('change', () => {
+      document.documentElement.classList.toggle('dark', checkbox.checked);
+    });
+  </script>
+</body>
