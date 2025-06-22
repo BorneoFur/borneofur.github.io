@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,9 +7,9 @@
   <!-- 
   for the production command:
   npx @tailwindcss/cli -i .\css\input.css -o .\css\tailwindcss.css --watch -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./css/tailwindcss.css" rel="stylesheet">
   <!-- this is for dev and debug only -->
-  <!-- <link href="./css/tailwindcss.css" rel="stylesheet"> -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <script>
     tailwind.config = {
       darkMode: 'class'
@@ -37,8 +37,7 @@
     }
   </style>
 </head>
-
-<body class="bg-white dark:bg-gray-900">
+<body class="transition-all duration-900 !bg-slate-100 dark:!bg-gray-900">
   <!-- 🌙 Theme toggle stays top-right -->
   <div class="absolute top-4 right-4 z-50">
     <label class="daynight">

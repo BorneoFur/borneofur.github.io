@@ -7,11 +7,19 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-yellow-50: oklch(98.7% 0.026 102.212);
+    --color-slate-50: oklch(98.4% 0.003 247.858);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-gray-900: oklch(21% 0.034 264.665);
+    --color-zinc-50: oklch(98.5% 0 0);
+    --color-neutral-50: oklch(98.5% 0 0);
+    --color-stone-50: oklch(98.5% 0.001 106.423);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-md: 28rem;
@@ -274,6 +282,36 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .\!bg-amber-50 {
+    background-color: var(--color-amber-50) !important;
+  }
+  .\!bg-amber-100 {
+    background-color: var(--color-amber-100) !important;
+  }
+  .\!bg-gray-50 {
+    background-color: var(--color-gray-50) !important;
+  }
+  .\!bg-neutral-50 {
+    background-color: var(--color-neutral-50) !important;
+  }
+  .\!bg-slate-50 {
+    background-color: var(--color-slate-50) !important;
+  }
+  .\!bg-slate-100 {
+    background-color: var(--color-slate-100) !important;
+  }
+  .\!bg-stone-50 {
+    background-color: var(--color-stone-50) !important;
+  }
+  .\!bg-white {
+    background-color: var(--color-white) !important;
+  }
+  .\!bg-yellow-50 {
+    background-color: var(--color-yellow-50) !important;
+  }
+  .\!bg-zinc-50 {
+    background-color: var(--color-zinc-50) !important;
+  }
   .bg-white {
     background-color: var(--color-white);
   }
@@ -321,8 +359,8 @@
   .underline {
     text-decoration-line: underline;
   }
-  .shadow-lg {
-    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+  .shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .outline {
@@ -334,6 +372,19 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-700 {
+    --tw-duration: 700ms;
+    transition-duration: 700ms;
+  }
+  .duration-900 {
+    --tw-duration: 900ms;
+    transition-duration: 900ms;
+  }
   .hover\:opacity-80 {
     &:hover {
       @media (hover: hover) {
@@ -341,33 +392,33 @@
       }
     }
   }
+  .dark\:\!bg-gray-900 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-gray-900) !important;
+    }
+  }
   .dark\:bg-gray-800 {
-    @media (prefers-color-scheme: dark) {
+    &:where(.dark, .dark *) {
       background-color: var(--color-gray-800);
     }
   }
   .dark\:bg-gray-900 {
-    @media (prefers-color-scheme: dark) {
+    &:where(.dark, .dark *) {
       background-color: var(--color-gray-900);
     }
   }
   .dark\:fill-gray-200 {
-    @media (prefers-color-scheme: dark) {
+    &:where(.dark, .dark *) {
       fill: var(--color-gray-200);
     }
   }
   .dark\:text-gray-300 {
-    @media (prefers-color-scheme: dark) {
+    &:where(.dark, .dark *) {
       color: var(--color-gray-300);
     }
   }
-  .dark\:text-gray-900 {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-gray-900);
-    }
-  }
   .dark\:text-white {
-    @media (prefers-color-scheme: dark) {
+    &:where(.dark, .dark *) {
       color: var(--color-white);
     }
   }
@@ -476,6 +527,10 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -502,6 +557,7 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
+      --tw-duration: initial;
     }
   }
 }
